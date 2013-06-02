@@ -1,0 +1,16 @@
+scheduleDelay=60000
+schedulePeriod=60000
+
+
+
+
+ApplicationDataSourceName=YAMMER_MONITOR
+DataSourceNameYAMMER_MONITOR=YAMMER_MONITOR
+driverNameYAMMER_MONITOR=oracle.jdbc.driver.OracleDriver
+initIdleObjectsYAMMER_MONITOR=15
+maxIdleObjectsYAMMER_MONITOR=20
+maxActiveObjectsYAMMER_MONITOR=16
+whenExhaustedYAMMER_MONITOR=grow
+connectionUriYAMMER_MONITOR=jdbc:oracle:thin:@unitdb.vip.qa.ebay.com:1521:unitdb
+userNameYAMMER_MONITOR=pipeln_dev10_app
+passwordYAMMER_MONITOR=pipeln_dev10_app
