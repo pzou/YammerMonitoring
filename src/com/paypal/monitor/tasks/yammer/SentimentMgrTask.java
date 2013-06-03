@@ -33,6 +33,7 @@ public class SentimentMgrTask {
 		this.returnDir = returnDir;
 		dao = YammerMessageDAO.getInstance();
 		this.days = days;
+
 	}
 
 	public void save() {
@@ -46,7 +47,8 @@ public class SentimentMgrTask {
 			fw = new FileWriter(file.getAbsoluteFile());
 			bw = new BufferedWriter(fw);
 			for (String str : data) {
-				bw.write(str);
+				//replace all the linefeed
+				bw.write((str.replaceAll(LINE_RETURN,"").replaceAll("\n", "").replaceAll("\r", "")));
 				bw.newLine();
 			}
 
@@ -76,6 +78,7 @@ public class SentimentMgrTask {
 			br = new BufferedReader(new FileReader(fileName));
  
 			while ((sCurrentLine = br.readLine()) != null) {
+				//no need line return from readFile
 				list.add(sCurrentLine);
 			}
  
@@ -93,7 +96,7 @@ public class SentimentMgrTask {
 	
 	public static void main(String[] args) throws Exception {
 		SentimentMgrTask task = new SentimentMgrTask("G:\\PayPal\\Verisign\\DataMining\\Jiri\\Jeff\\In\\",
-				"G:\\PayPal\\Verisign\\DataMining\\Jiri\\Jeff\\In\\History\\", 7);
+				"G:\\PayPal\\Verisign\\DataMining\\Jiri\\Jeff\\In\\History\\", 10);
 	  task.save();
 	}
 }
