@@ -48,7 +48,7 @@ public class SentimentMgrTask {
 			bw = new BufferedWriter(fw);
 			for (String str : data) {
 				//replace all the linefeed
-				bw.write((str.replaceAll(LINE_RETURN,"").replaceAll("\n", "").replaceAll("\r", "")));
+				bw.write((str.replaceAll("\n", "").replaceAll("\r", "")));
 				bw.newLine();
 			}
 
