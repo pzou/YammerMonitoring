@@ -1,8 +1,3 @@
-sscheduleDelay=60000
-schedulePeriod=60000
-
-
-
 
 ApplicationDataSourceName=YAMMER_MONITOR
 DataSourceNameYAMMER_MONITOR=YAMMER_MONITOR

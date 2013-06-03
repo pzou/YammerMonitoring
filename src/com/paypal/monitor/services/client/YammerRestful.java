@@ -72,7 +72,29 @@ public class YammerRestful {
     	//Group id and access token from config table.
     	//According the yammer it is permanent access_token.
     	//param 1 --- group id,  param 2 -- token   , param 3 -- last process_id
-    	YammerAppInfo info = new YammerAppInfo(1883168, "P1eZn4AcsJaB1dNEBF59Jg",298795532);
+
+    	if (args.length < 3){
+            System.out.println("java YammerYammerRest groupId token lastProcessMsgId");
+    		return;
+    	}
+    	long group_id = 0l;
+    	long last_process_id =0l;
+    	try{
+    		group_id = Long.valueOf(args[0]);
+    	}catch( NumberFormatException e){
+    		System.out.println("groupId should be numberic");
+    		System.out.println("java YammerYammerRest groupId token lastProcessMsgId");
+    		System.exit(0);
+    	}
+    	try{
+    		last_process_id = Long.valueOf(args[2]);
+    	}catch( NumberFormatException e){
+    		System.out.println("groupId should be numberic");
+    		System.out.println("javlastPromcessMsgIda YammerYammerRest groupId token lastProcessMsgId");
+    		System.exit(0);
+    	}
+    		
+    	YammerAppInfo info = new YammerAppInfo(group_id, args[1],last_process_id);
     	YammerRestful api =  new YammerRestful( info );
     	// last_process_id from high water mark table as well.  
     	//Optimization: only retrieve msg newer than last process id
